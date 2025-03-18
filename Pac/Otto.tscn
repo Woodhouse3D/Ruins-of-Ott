@@ -1,0 +1,61 @@
+[gd_scene load_steps=10 format=3 uid="uid://csfnd258hixpc"]
+
+[ext_resource type="Script" path="res://move_component.gd" id="1_bfng7"]
+[ext_resource type="Texture2D" uid="uid://fww35f7q6kx" path="res://target.png" id="2_gr5ri"]
+[ext_resource type="Texture2D" uid="uid://cbypbgvhbjyh1" path="res://Otto.png" id="3_kbd1g"]
+[ext_resource type="Script" path="res://anim_component.gd" id="4_1qxsa"]
+[ext_resource type="Script" path="res://player_input.gd" id="5_d1wd1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ymm86"]
+atlas = ExtResource("3_kbd1g")
+region = Rect2(28, 0, 14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uaj6p"]
+atlas = ExtResource("3_kbd1g")
+region = Rect2(14, 0, 14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s203a"]
+atlas = ExtResource("3_kbd1g")
+region = Rect2(0, 0, 14, 14)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_425ie"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ymm86")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uaj6p")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_s203a")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Otto" type="Node2D"]
+position = Vector2(112, 196)
+script = ExtResource("1_bfng7")
+gridsize = 14
+speed = 1.3
+
+[node name="targetsprite" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_gr5ri")
+centered = false
+
+[node name="ottosprite" type="AnimatedSprite2D" parent="."]
+modulate = Color(0.187176, 0.187176, 0.187176, 1)
+position = Vector2(7, 7)
+sprite_frames = SubResource("SpriteFrames_425ie")
+autoplay = "default"
+frame_progress = 0.554458
+speed_scale = 2.0
+
+[node name="anim_component" type="Node2D" parent="."]
+script = ExtResource("4_1qxsa")
+
+[node name="player_input" type="Node" parent="."]
+script = ExtResource("5_d1wd1")
