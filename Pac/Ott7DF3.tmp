@@ -65,7 +65,6 @@ move = NodePath("..")
 script = ExtResource("5_d1wd1")
 move = NodePath("..")
 
-[node name="pellet_component" type="Node2D" parent="." node_paths=PackedStringArray("player")]
+[node name="pellet_component" type="Node2D" parent="."]
 script = ExtResource("6_wwob1")
-player = NodePath("..")
 gridsize = 14

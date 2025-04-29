@@ -20,6 +20,7 @@ var lerpcounter: float = 0
 func _ready():
 	current_tile = Vector2(position.x / gridsize, position.y / gridsize)
 	target_tile = current_tile
+	tilemap = get_tree().get_nodes_in_group("tilemap").pop_front()
 	pass # Replace with function body.
 
 
@@ -30,7 +31,7 @@ func _ready():
 func can_move(direction):
 	pass
 
-func _process(delta):
+func _physics_process(delta: float) -> void:
 	
 	# snaps entity to grid if they stop moving
 	if (position.distance_to(target_tile * gridsize) <= 0.1):
